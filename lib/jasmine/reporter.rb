@@ -15,7 +15,7 @@ module Jasmine
         run_jasmine
         result = parse_tests
         xml = generate_xml(result[0], result[1])
-        write_xml_output(report_file,xml)
+        write_xml_output(report_file, xml)
       end
 
       private
@@ -34,13 +34,13 @@ module Jasmine
         if result.size==3
           return [result[1].to_i, result[2].to_i]
         else
-          return [0,0]
+          return [0, 0]
         end
       end
 
       def generate_xml(number_of_specs, number_of_failures)
         result = '<?xml version="1.0" encoding="UTF-8"?>'+ "\n"
-        result += "<testsuite tests=#{number_of_specs}>"+ "\n"
+        result += '<testsuite tests="'+number_of_specs+'">'+ "\n"
         (1..number_of_specs).each do |s|
           result += '  <testcase name="'+s.to_s+' Test">'+ "\n"
           if number_of_failures>0
@@ -53,8 +53,8 @@ module Jasmine
         result
       end
 
-      def write_xml_output(report_file,xml)
-        File.write("#{PATH}/#{report_file}",xml)
+      def write_xml_output(report_file, xml)
+        File.write("#{PATH}/#{report_file}", xml)
       end
     end
   end

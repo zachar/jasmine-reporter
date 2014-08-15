@@ -40,9 +40,9 @@ end
 ```
 
 Inside your Jenkins Task:
-````bash
+```bash
 RAILS_ENV=test bundle exec rake jasmine:xml
-´´´´
+```
 
 
 

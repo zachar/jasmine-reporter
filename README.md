@@ -1,6 +1,9 @@
 # Jasmine::Reporter
 
-TODO: Write a gem description
+This gem parse the output of a jasmine:ci call and create a valid JUnitXML file as required by the continuous integration plattform jenkins/hudson.
+The test results of the jenkins call can be used to show the number of specs run and failed.
+
+
 
 ## Installation
 
@@ -18,9 +21,30 @@ Or install it yourself as:
 
     $ gem install jasmine-reporter
 
+
+Jasmine will not be installed by this gem.
 ## Usage
 
-TODO: Write usage instructions here
+Require the file, wrap the call in a rake task and fire it on your Jenkins / Hudson installation.
+
+## Examples
+Create a file in /lib/tasks/jasmine-reporter.rake with the following content:
+```ruby
+require 'jasmine/reporter'
+namespace :jasmine do
+  desc 'Run Jasmine:ci and create JUnitXml Output'
+  task :xml => :environment do
+    Jasmine::Reporter::XmlReporter.new
+  end
+end
+```
+
+Inside your Jenkins Task:
+````bash
+RAILS_ENV=test bundle exec rake jasmine:xml
+´´´´
+
+
 
 ## Contributing
 

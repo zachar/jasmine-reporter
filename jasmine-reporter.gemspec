@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["damu"]
   spec.email         = ["dariusmurawski@hotmail.com"]
   spec.summary       = 'Read Jasmine:ci output and generates JUnitXML Output files.'
-  spec.description   = 'Run the raketask jasmine-reporter:xml task to get the output.'
+  spec.description   = 'Run the raketask to get the output.'
   spec.homepage      = ""
   spec.license       = "MIT"
 

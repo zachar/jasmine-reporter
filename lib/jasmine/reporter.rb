@@ -12,9 +12,10 @@ module Jasmine
 
       def initialize(report_file = REPORT_FILE)
         create_test_directory
+        start = Time.now
         run_jasmine
         result = parse_tests
-        xml = generate_xml(result[0], result[1])
+        xml = generate_xml(result[0], result[1],Time.now-start)
         write_xml_output(report_file, xml)
       end
 
@@ -38,9 +39,9 @@ module Jasmine
         end
       end
 
-      def generate_xml(number_of_specs, number_of_failures)
+      def generate_xml(number_of_specs, number_of_failures,time_taken)
         result = '<?xml version="1.0" encoding="UTF-8"?>'+ "\n"
-        result += '<testsuite tests="'+number_of_specs+'">'+ "\n"
+        result += '<testsuite name="Jasmine JavaScript Tests" tests="'+number_of_specs+'" time="'+time_taken+'">'+ "\n"
         (1..number_of_specs).each do |s|
           result += '  <testcase name="'+s.to_s+' Test">'+ "\n"
           if number_of_failures>0

@@ -41,7 +41,7 @@ module Jasmine
 
       def generate_xml(number_of_specs, number_of_failures,time_taken)
         result = '<?xml version="1.0" encoding="UTF-8"?>'+ "\n"
-        result += '<testsuite name="Jasmine JavaScript Tests" tests="'+number_of_specs+'" time="'+time_taken+'">'+ "\n"
+        result += '<testsuite name="Jasmine JavaScript Tests" tests="'+number_of_specs.to_s+'" time="'+time_taken.to_s+'">'+ "\n"
         (1..number_of_specs).each do |s|
           result += '  <testcase name="'+s.to_s+' Test">'+ "\n"
           if number_of_failures>0

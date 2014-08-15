@@ -8,7 +8,7 @@ module Jasmine
 
       PATH = 'spec/reports'
       JASMINE_FILE = 'jasmine.out'
-      REPORT_FILE = 'jasmine.xml'
+      REPORT_FILE = 'SPEC-jasmine.xml'
 
       def initialize(report_file = REPORT_FILE)
         create_test_directory
